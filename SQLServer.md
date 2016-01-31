@@ -31,13 +31,13 @@ bcp sampleDB.dbo.社員 out C:\shain.txt /S Server1 /T /c /t ","
 SQL Server では、OPENROWSET という関数を利用すると、Access データベースやリモートの SQL Server など、さまざまなデータベースのデータを SELECT ステートメントでクエリできるようになります。
 この機能は、「アドホック クエリ」（Adhoc Query）とも呼ばれています。OPENROWSET 関数は、次のように利用します。
 
-```
+```sql
 SELECT * FROM OPENROWSET('プロバイダー名', 'プロバイダーに応じた接続パス', 'SELECT ステートメント')
 ```
 
 
 リモートのSQLServerへ接続する場合
-```
+```sql
 SELECT * FROM OPENROWSET('SQLNCLI', 'Server=BAMBOO;Trusted_Connection=yes;' , 'SELECT * FROM sampleDB.dbo.社員' )
 ```
 
@@ -50,30 +50,30 @@ SELECT * FROM OPENROWSET('SQLNCLI', 'Server=BAMBOO;Trusted_Connection=yes;' , 'S
 ### TRUNCATE TABLE
 データの全削除．DELETEよりも高速.
 
-```
+```sql
 TRUNCATE TABLE <テーブル名>
 ```
 
 ## Transact-SQL チートシート
 ### 変数宣言
-```
+```sql
 DECLARE @変数名 データ型 = 初期値
 ```
 
-```
+```sql
 -- 変数宣言
 DECLARE @z int = 888
 ```
 
 ### 出力
-```
+```sql
 DECLARE @z int = 42
 PRINT 'Hello,World' + CONVERT( varchar, @z )
 -- Hello,World42
 ```
 
 ### 制御構文
-```
+```sql
 DECLARE @x int
 SET @x = DATEPART( hour, GETDATE() ) --DATEPART 関数で現在時刻のうち、 時間(hour)のみを取得
 IF @x < 12
@@ -86,7 +86,7 @@ ELSE
   ENDIF
 ```
 
-```
+```sql
 DECLARE @x int
 SET @x = DATEPART( hour, GETDATE() )
 
@@ -105,6 +105,6 @@ PRINT @greeting
 
 ### IIF
 三項演算子的な．
-```
+```sql
 SELECT IIF( sal >= 500000, '50万円以上', '50万円未満' ) FROM emp
 ```
