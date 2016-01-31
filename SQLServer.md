@@ -1,7 +1,7 @@
-# SQLメモ
+# SQLServer
+[SQLServer 自習書](https://www.microsoft.com/ja-jp/server-cloud/local/documents/default.aspx?pdid=SQL&svid=all_SV&dtid=all_DT)より．
 
-
-## 現場で使えるなんちゃら
+## データのコピーと現場で役立つ便利な操作集
 
 ### bcpコマンドでCSVファイル出力
 
