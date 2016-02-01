@@ -54,7 +54,54 @@ SELECT * FROM OPENROWSET('SQLNCLI', 'Server=BAMBOO;Trusted_Connection=yes;' , 'S
 TRUNCATE TABLE <テーブル名>
 ```
 
+
+# コーディング規約
+[SQLプログラミング作法](http://www.geocities.jp/mickindex/database/db_manner.html)
+
+```
+SELECT col_1
+    FROM    SomeTable;
+    WHERE  col_1 = 'a'
+        AND  col_2 = 'b'
+        -- 以下の条件は col_3 が 'c'、 'd' のいずれかであることを指定します
+        AND  col_3 IN ( 'c', 'd' );
+```
+
+```
+SELECT
+          col_1,
+          col_2,
+          col_3,
+          COUNT(*)
+FROM   tbl_A
+WHERE  col_1 = 'a'
+  AND  col_2 = ( SELECT MAX(col_2)
+                      FROM    tbl_B
+                      WHERE  col_3 = 100
+       )
+GROUP BY
+          col_1,
+          col_2,
+          col_3
+```
+
+
+
 ## Transact-SQL チートシート
+## UNION
+和集合．
+
+```
+SELECT 文1
+  UNION ALL
+SELECT 文 2
+  UNION ALL
+SELECT 文 3
+```
+### `UNION` vs `UNION ALL`
+重複を許可する場合は `UNION ALL`．
+
+
 ### 変数宣言
 ```sql
 DECLARE @変数名 データ型 = 初期値
