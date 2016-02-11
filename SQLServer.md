@@ -155,3 +155,8 @@ PRINT @greeting
 ```sql
 SELECT IIF( sal >= 500000, '50万円以上', '50万円未満' ) FROM emp
 ```
+
+## 開発ツール
+SQLのフォーマッタ．SQL Server Management Studio で動く．
+[Poor Man's T-SQL Formatter](http://architectshack.com/PoorMansTSqlFormatter.ashx)
+[SQL Server 2014 Management Studioで動かす場合](http://qiita.com/lrow315/items/246ced682b467eb7e80e)
